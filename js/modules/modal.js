@@ -3,24 +3,21 @@ const initModal = () => {
   const closeLogin = document.querySelector('[data-modal="fechar"]');
   const modal = document.querySelector('[data-modal="container"]');
 
-  const openModal = (event) => {
-    event.preventDefault();
-    modal.classList.add("ativo");
-  };
+  if (openLogin && closeLogin && modal) {
+    const toggleModal = (event) => {
+      event.preventDefault();
+      modal.classList.toggle("ativo");
+    };
 
-  const closeModal = (event) => {
-    event.preventDefault();
-    modal.classList.remove("ativo");
-  };
+    const clickOutSide = (event) => {
+      event.preventDefault();
+      event.target === modal ? toggleModal(event) : "";
+    };
 
-  const clickOutSide = (event) => {
-    event.preventDefault();
-    event.target === modal ? closeModal(event) : "";
-  };
-
-  modal.addEventListener("click", clickOutSide);
-  closeLogin.addEventListener("click", closeModal);
-  openLogin.addEventListener("click", openModal);
+    modal.addEventListener("click", clickOutSide);
+    closeLogin.addEventListener("click", toggleModal);
+    openLogin.addEventListener("click", toggleModal);
+  }
 };
 
 export default initModal;
