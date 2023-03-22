@@ -28,6 +28,11 @@
     background: white;
     box-shadow: 0 4px white, 0 -4px white;
     margin-right: 6px;
+    transition: transform 300ms ease;
+  }
+
+  [data-menu="button"].ativo::before {
+    transform: rotate(90deg);
   }
 
   #menu {

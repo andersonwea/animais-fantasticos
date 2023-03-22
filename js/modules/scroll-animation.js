@@ -11,7 +11,7 @@ const initScrollAnimation = () => {
 
         if (isSecttionVisible) {
           section.classList.add("ativo");
-        } else {
+        } else if (section.classList.contains("ativo")) {
           section.classList.remove("ativo");
         }
       });
