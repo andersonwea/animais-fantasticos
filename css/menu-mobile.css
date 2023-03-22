@@ -1,0 +1,47 @@
+[data-menu="button"] {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  [data-menu="button"] {
+    display: flex;
+    align-items: center;
+    background: black;
+    color: white;
+    padding: 0.5rem 0.7rem;
+    border-radius: 4px;
+    border: none;
+    text-transform: uppercase;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: bold;
+    margin: 10px;
+    z-index: 300;
+    position: relative;
+  }
+
+  [data-menu="button"]::before {
+    content: "";
+    height: 2px;
+    width: 12px;
+    display: inline-block;
+    background: white;
+    box-shadow: 0 4px white, 0 -4px white;
+    margin-right: 6px;
+  }
+
+  #menu {
+    position: absolute;
+    background: #fb5;
+    display: block;
+    width: 160px;
+    z-index: 200;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 60px 0 20px 0;
+    top: 0;
+  }
+
+  .dropdown-menu {
+    position: static;
+    border: none;
+  }
+}
