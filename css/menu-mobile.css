@@ -17,6 +17,7 @@
     margin: 10px;
     z-index: 300;
     position: relative;
+    cursor: pointer;
   }
 
   [data-menu="button"]::before {
@@ -32,12 +33,17 @@
   #menu {
     position: absolute;
     background: #fb5;
-    display: block;
+    display: none;
     width: 160px;
     z-index: 200;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
     padding: 60px 0 20px 0;
     top: 0;
+  }
+
+  #menu.ativo {
+    display: block;
+    animation: show-right 300ms forwards;
   }
 
   .dropdown-menu {
