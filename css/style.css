@@ -319,3 +319,9 @@ body {
 [data-semana].aberto::after {
   background: #3f4;
 }
+
+.btc {
+  background: #3f4;
+  border-radius: 4px;
+  padding: 0.2rem;
+}
