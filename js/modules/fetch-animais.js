@@ -1,6 +1,13 @@
 import initAnimaNumeros from "./anima-numeros.js";
 
 const initFetchAnimais = () => {
+  const createAnimal = (animal) => {
+    const div = document.createElement("div");
+    div.classList.add("numero-animal");
+    div.innerHTML = `<h3>${animal.especie}</h3><span data-numero>${animal.valor}</span>`;
+    return div;
+  };
+
   const fetchAnimais = async (url) => {
     try {
       const numerosGrid = document.querySelector(".numeros-grid");
@@ -17,12 +24,6 @@ const initFetchAnimais = () => {
     }
   };
 
-  const createAnimal = (animal) => {
-    const div = document.createElement("div");
-    div.classList.add("numero-animal");
-    div.innerHTML = `<h3>${animal.especie}</h3><span data-numero>${animal.valor}</span>`;
-    return div;
-  };
   fetchAnimais("./animaisapi.json");
 };
 

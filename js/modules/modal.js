@@ -11,7 +11,9 @@ const initModal = () => {
 
     const clickOutSide = (event) => {
       event.preventDefault();
-      event.target === modal ? toggleModal(event) : "";
+      if (event.target === modal) {
+        toggleModal(event);
+      }
     };
 
     modal.addEventListener("click", clickOutSide);
