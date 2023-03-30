@@ -1,25 +1,39 @@
-const initModal = () => {
-  const openLogin = document.querySelector('[data-modal="abrir"]');
-  const closeLogin = document.querySelector('[data-modal="fechar"]');
-  const modal = document.querySelector('[data-modal="container"]');
+class initModal {
+  constructor(openButton, closeButton, modalContainer) {
+    this.openLogin = document.querySelector(openButton);
+    this.closeLogin = document.querySelector(closeButton);
+    this.modal = document.querySelector(modalContainer);
 
-  if (openLogin && closeLogin && modal) {
-    const toggleModal = (event) => {
-      event.preventDefault();
-      modal.classList.toggle("ativo");
-    };
-
-    const clickOutSide = (event) => {
-      event.preventDefault();
-      if (event.target === modal) {
-        toggleModal(event);
-      }
-    };
-
-    modal.addEventListener("click", clickOutSide);
-    closeLogin.addEventListener("click", toggleModal);
-    openLogin.addEventListener("click", toggleModal);
+    // Bind this ao callback para fazer referência
+    // ao objeto da classe
+    this.toggleModal = this.toggleModal.bind(this);
+    this.clickOutSide = this.clickOutSide.bind(this);
   }
-};
+
+  toggleModal(event) {
+    event.preventDefault();
+    this.modal.classList.toggle("ativo");
+  }
+
+  clickOutSide(event) {
+    event.preventDefault();
+    if (event.target === this.modal) {
+      this.toggleModal(event);
+    }
+  }
+
+  addButtonEvent() {
+    this.modal.addEventListener("click", this.clickOutSide);
+    this.closeLogin.addEventListener("click", this.toggleModal);
+    this.openLogin.addEventListener("click", this.toggleModal);
+  }
+
+  init() {
+    if (this.openLogin && this.closeLogin && this.modal) {
+      this.addButtonEvent();
+    }
+    return this;
+  }
+}
 
 export default initModal;
