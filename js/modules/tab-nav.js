@@ -31,6 +31,7 @@ class TabNav {
       this.menuAtivo(0);
       this.addTabEvent();
     }
+    return this;
   }
 }
 
