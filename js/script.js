@@ -4,11 +4,11 @@ import TabNav from "./modules/tab-nav.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
 import fetchAnimais from "./modules/fetch-animais.js";
+import fetchBitcoin from "./modules/fetch-bitcoin.js";
 import initScrollAnimation from "./modules/scroll-animation.js";
 import initDropdownMenu from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/funcionamento.js";
-import initBitcoin from "./modules/fetch-bitcoin.js";
 
 const scrollSmooth = new ScrollSmooth('[data-menu="suave"] a[href^="#"]');
 scrollSmooth.init();
@@ -36,6 +36,7 @@ initScrollAnimation();
 initDropdownMenu();
 initMenuMobile();
 initFuncionamento();
-initBitcoin();
 
 fetchAnimais("../../animaisapi.json", ".numeros-grid");
+
+fetchBitcoin("https://blockchain.info/ticker", ".btc");
