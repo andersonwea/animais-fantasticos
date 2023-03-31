@@ -3,11 +3,11 @@ import Accordion from "./modules/accordion.js";
 import TabNav from "./modules/tab-nav.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
+import fetchAnimais from "./modules/fetch-animais.js";
 import initScrollAnimation from "./modules/scroll-animation.js";
 import initDropdownMenu from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/funcionamento.js";
-import initFetchAnimais from "./modules/fetch-animais.js";
 import initBitcoin from "./modules/fetch-bitcoin.js";
 
 const scrollSmooth = new ScrollSmooth('[data-menu="suave"] a[href^="#"]');
@@ -36,5 +36,6 @@ initScrollAnimation();
 initDropdownMenu();
 initMenuMobile();
 initFuncionamento();
-initFetchAnimais();
 initBitcoin();
+
+fetchAnimais("../../animaisapi.json", ".numeros-grid");
