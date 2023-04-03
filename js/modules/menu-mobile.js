@@ -9,7 +9,8 @@ class MenuMobile {
     this.events = events ?? ["click", "touchstart"];
   }
 
-  handleClick() {
+  handleClick(event) {
+    event.preventDefault();
     this.menuMobile.classList.add(this.active);
     this.menuList.classList.add(this.active);
 
